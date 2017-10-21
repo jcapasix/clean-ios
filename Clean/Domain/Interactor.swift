@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LoginInteractor{
+class Interactor{
 
     var repository : Any
 
@@ -17,7 +17,7 @@ class LoginInteractor{
     }
 
     func login(email:String, password:String, completion:@escaping (_ rpt:Bool) -> Void){
-        (repository as! LoginRepository).logIn(email: email, password: password) { (rpt) in
+        (repository as! Repository).logIn(email: email, password: password) { (rpt) in
             if rpt{
                 completion(true)
             }

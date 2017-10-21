@@ -8,7 +8,14 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+protocol RegisterProtocol {
+    func showEror(message:String)
+}
+
+class RegisterViewController: UIViewController, RegisterProtocol{
+
+    var presenter:RegisterPresenter?
+    var router:RegisterRouter?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +26,10 @@ class RegisterViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    func showEror(message:String){
+        
     }
     
 

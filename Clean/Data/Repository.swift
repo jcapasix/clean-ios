@@ -20,8 +20,8 @@ struct LoginErrorCode {
     static let PROBLEM_CONNECTING = "Problem Connecting To Database, Please Try Later"
 }
 
-class LoginRepository{
-    public static let sharedInstance = LoginRepository()
+class Repository{
+    public static let sharedInstance = Repository()
 
     func logIn(email:String, password:String, completion:@escaping (_ rpt:Bool) -> Void){
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in

@@ -18,9 +18,9 @@ class LoginConfigurator{
 
         let router = LoginRouter(viewController:viewController)
 
-        let repository: LoginRepository = LoginRepository.sharedInstance
+        let repository: Repository = Repository.sharedInstance
 
-        let interactor = LoginInteractor(repository: repository)
+        let interactor = Interactor(repository: repository)
 
         let presenter = LoginPresenter(interactor: interactor, viewController:viewController)
 

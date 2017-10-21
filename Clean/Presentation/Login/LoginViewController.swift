@@ -9,7 +9,6 @@
 import UIKit
 
 protocol LoginProtocol{
-
     func showEror(message:String)
 }
 
