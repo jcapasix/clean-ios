@@ -16,9 +16,9 @@ protocol RegisterRouterProtocol {
 class RegisterRouter: RegisterRouterProtocol {
 
     //LoginViewController (example)
-    private var viewController: LoginViewController!
+    private var viewController: RegisterViewController!
 
-    init(viewController:LoginViewController) {
+    init(viewController:RegisterViewController) {
         self.viewController = viewController
     }
 

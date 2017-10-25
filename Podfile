@@ -5,13 +5,15 @@ target 'Clean' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for Clean
-  pod 'Firebase/Core'
-  pod 'Firebase/Storage'
-  pod 'Firebase/Auth'
-  pod 'Firebase/Database'
 
-  pod 'SVProgressHUD'
+pod 'Alamofire', '~> 4.4'
+pod 'AlamofireImage', '~> 3.1'
+pod 'AlamofireObjectMapper', '~> 5.0'
+pod 'ObjectMapper', '~> 3.0'
+
+pod 'SVProgressHUD'
+
+pod 'ReachabilitySwift', '~> 3.0'
 
   target 'CleanTests' do
     inherit! :search_paths
