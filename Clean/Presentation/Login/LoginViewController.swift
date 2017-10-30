@@ -9,6 +9,7 @@
 import UIKit
 
 protocol LoginProtocol{
+    func showHome()
     func showEror(message:String)
 }
 
@@ -16,6 +17,10 @@ class LoginViewController: UIViewController, LoginProtocol {
 
     var presenter:LoginPresenter?
     var router:LoginRouter?
+    
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +34,7 @@ class LoginViewController: UIViewController, LoginProtocol {
 
 
     @IBAction func TapLoginButton(_ sender: Any) {
+        self.presenter?.login(username:self.usernameTextField.text!, password: self.passwordTextField.text!)
 
     }
 
@@ -37,9 +43,14 @@ class LoginViewController: UIViewController, LoginProtocol {
 
     }
 
-
+    
+    // MARK: - LoginProtocol
+    func showHome(){
+        self.router?.routeToHome()
+    }
+    
     func showEror(message:String){
-
+        print(message)
     }
     
 

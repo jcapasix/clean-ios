@@ -2,9 +2,10 @@
 //  UserEntity.swift
 //  Clean
 //
-//  Created by jcapasix on 2/9/17.
+//  Created by Jordan Capa on 10/29/17.
 //  Copyright © 2017 Jordan Capa. All rights reserved.
 //
+
 import Foundation
 import ObjectMapper
 

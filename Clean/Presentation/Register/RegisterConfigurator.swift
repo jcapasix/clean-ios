@@ -18,7 +18,7 @@ class RegisterConfigurator{
 
         let router = RegisterRouter(viewController:viewController)
 
-        let repository: Repository = Repository.sharedInstance
+        let repository: Repository = RestApi.sharedInstance
 
         let interactor = Interactor(repository: repository)
 

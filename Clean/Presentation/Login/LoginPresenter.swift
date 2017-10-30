@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import SVProgressHUD
 
 class LoginPresenter{
 
@@ -19,5 +19,18 @@ class LoginPresenter{
         self.viewController = viewController
     }
 
+    func login(username:String, password:String){
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.gradient)
+        SVProgressHUD.show()
+        self.interactor.login(username: username, password: password) { (user, error) in
+            SVProgressHUD.dismiss()
+            if (error == nil){
+                self.viewController.showHome()
+            }
+            else{
+                self.viewController.showEror(message: "Error")
+            }
+        }
+    }
 
 }

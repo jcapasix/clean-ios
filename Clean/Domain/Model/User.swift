@@ -28,8 +28,7 @@ class User{
                   email:String,
                   first_name:String,
                   last_name:String?,
-                  token:String?,
-                  is_administrator:Bool?){
+                  token:String?){
 
         self.username = username
         self.email = email

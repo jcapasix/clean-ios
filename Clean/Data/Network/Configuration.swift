@@ -16,7 +16,7 @@ public protocol Configuration {
 
 public struct ProductionConfig: Configuration {
 
-    public static let serverURL = "https://westerosws.herokuapp.com/api"
+    public static let serverURL = "https://cleanws.herokuapp.com/api"
 }
 
 public struct DevelopConfig: Configuration {
