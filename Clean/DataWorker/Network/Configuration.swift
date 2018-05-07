@@ -19,23 +19,23 @@ public struct ProductionConfig: Configuration {
     public static let serverURL = "https://cleanws.herokuapp.com/api"
 }
 
-public struct DevelopConfig: Configuration {
-
-    public static let serverURL = "http://192.168.8.102:8000/api"
-}
-
-public struct TestConfig: Configuration {
-
-    public static let serverURL = "http://192.168.8.102:8000/api"
-}
+//public struct DevelopConfig: Configuration {
+//
+//    public static let serverURL = "http://192.168.8.102:8000/api"
+//}
+//
+//public struct TestConfig: Configuration {
+//
+//    public static let serverURL = "http://192.168.8.102:8000/api"
+//}
 
 public extension Environment {
 
     var configuration: Configuration.Type {
         switch self {
-        case .Development: return DevelopConfig.self
         case .Production: return ProductionConfig.self
-        case .Test: return TestConfig.self
+//        case .Development: return DevelopConfig.self
+//        case .Test: return TestConfig.self
         }
     }
 }

@@ -9,7 +9,8 @@
 import Foundation
 
 public enum Environment: String {
-    case Development
+//    case Development
+//    case Test
     case Production
-    case Test
+
 }

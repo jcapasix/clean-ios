@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 protocol RegisterRouterProtocol {
-    func routeToHome()
 }
 
 class RegisterRouter: RegisterRouterProtocol {
@@ -22,9 +21,8 @@ class RegisterRouter: RegisterRouterProtocol {
         self.viewController = viewController
     }
 
-
     func routeToHome(){
-        viewController.performSegue(withIdentifier: "showHome", sender: nil)
+        viewController.navigationController?.popViewController(animated: true)
     }
 
 }
