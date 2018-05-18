@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		39283623208693AD004BF7FD /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39283622208693AD004BF7FD /* Home.storyboard */; };
+		4931C27620AF495200F2D7E1 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4931C27520AF495200F2D7E1 /* LogoutViewController.swift */; };
+		4931C27920AF4A7100F2D7E1 /* LogoutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4931C27820AF4A7100F2D7E1 /* LogoutRouter.swift */; };
+		4931C27B20AF4B4C00F2D7E1 /* LogoutConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4931C27A20AF4B4C00F2D7E1 /* LogoutConfigurator.swift */; };
 		49A31AB02087B38D00C44DD9 /* RegisterIteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A31AAF2087B38D00C44DD9 /* RegisterIteractor.swift */; };
 		501FCEE41FA6B9D8009373FF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501FCEE31FA6B9D8009373FF /* Constants.swift */; };
 		501FCEE61FA6BAA9009373FF /* ErrorEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501FCEE51FA6BAA9009373FF /* ErrorEntity.swift */; };
@@ -60,6 +63,9 @@
 		3304DB58DB0EE90657B78840 /* Pods-Clean.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clean.release.xcconfig"; path = "Pods/Target Support Files/Pods-Clean/Pods-Clean.release.xcconfig"; sourceTree = "<group>"; };
 		33647BFA2FA3F2D1DB527249 /* Pods-CleanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanUITests/Pods-CleanUITests.release.xcconfig"; sourceTree = "<group>"; };
 		39283622208693AD004BF7FD /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		4931C27520AF495200F2D7E1 /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
+		4931C27820AF4A7100F2D7E1 /* LogoutRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutRouter.swift; sourceTree = "<group>"; };
+		4931C27A20AF4B4C00F2D7E1 /* LogoutConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutConfigurator.swift; sourceTree = "<group>"; };
 		49A31AAF2087B38D00C44DD9 /* RegisterIteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterIteractor.swift; sourceTree = "<group>"; };
 		501FCEE31FA6B9D8009373FF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		501FCEE51FA6BAA9009373FF /* ErrorEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorEntity.swift; sourceTree = "<group>"; };
@@ -194,9 +200,28 @@
 		4931C27320AF20DA00F2D7E1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				4931C27720AF49DD00F2D7E1 /* Home */,
 				392836282086AAFB004BF7FD /* Main */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		4931C27420AF48F200F2D7E1 /* LogoutView */ = {
+			isa = PBXGroup;
+			children = (
+				4931C27A20AF4B4C00F2D7E1 /* LogoutConfigurator.swift */,
+				4931C27820AF4A7100F2D7E1 /* LogoutRouter.swift */,
+				4931C27520AF495200F2D7E1 /* LogoutViewController.swift */,
+			);
+			path = LogoutView;
+			sourceTree = "<group>";
+		};
+		4931C27720AF49DD00F2D7E1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4931C27420AF48F200F2D7E1 /* LogoutView */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		501FCEE11FA6B9BE009373FF /* Resourses */ = {
@@ -671,8 +696,11 @@
 				9A9773811F9B0B5D00D9EF69 /* LoginViewController.swift in Sources */,
 				49A31AB02087B38D00C44DD9 /* RegisterIteractor.swift in Sources */,
 				9A97738B1F9B0E6900D9EF69 /* RegisterViewController.swift in Sources */,
+				4931C27620AF495200F2D7E1 /* LogoutViewController.swift in Sources */,
+				4931C27920AF4A7100F2D7E1 /* LogoutRouter.swift in Sources */,
 				9A97734B1F9B0A2600D9EF69 /* AppDelegate.swift in Sources */,
 				501FCEE81FA6BB56009373FF /* UserEntity.swift in Sources */,
+				4931C27B20AF4B4C00F2D7E1 /* LogoutConfigurator.swift in Sources */,
 				9AE16F8D1F9B1A6000907BBD /* RegisterRouter.swift in Sources */,
 				9A9773531F9B0A2600D9EF69 /* Clean.xcdatamodeld in Sources */,
 				9A9773891F9B0D6200D9EF69 /* LoginRouter.swift in Sources */,

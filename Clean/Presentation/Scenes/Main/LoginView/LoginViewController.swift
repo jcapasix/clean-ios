@@ -48,6 +48,7 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
     func showHome(){
         self.router?.routeToHome()
         self.lbError.text = ""
+        self.view.endEditing(true)
     }
     
     func showError(message: String) {
