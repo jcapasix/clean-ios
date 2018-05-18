@@ -17,12 +17,21 @@ protocol LoginRouterProtocol {
 
 class LoginRouter: LoginRouterProtocol {
 
-    //LoginViewController (example)
     private var viewController: LoginViewController!
 
     init(viewController:LoginViewController) {
         self.viewController = viewController
     }
+    
+    func routeToHome(){
+        viewController.performSegue(withIdentifier: "showHome", sender: nil)
+    }
+    
+    func routeToRegister(){
+        viewController.performSegue(withIdentifier: "showRegister", sender: nil)
+    }
+    
+    
     // MARK: Navigation
 
 //    func navigateToSomewhere() {
@@ -43,13 +52,7 @@ class LoginRouter: LoginRouterProtocol {
 //        // viewController.navigationController?.pushViewController(someWhereViewController, animated: true)
 //    }
 
-    func routeToHome(){
-        viewController.performSegue(withIdentifier: "showHome", sender: nil)
-    }
-
-    func routeToRegister(){
-        viewController.performSegue(withIdentifier: "showRegister", sender: nil)
-    }
+   
 
 //    // MARK: Communication
 //
@@ -67,5 +70,7 @@ class LoginRouter: LoginRouterProtocol {
 //        // let someWhereViewController = segue.destinationViewController as! SomeWhereViewController
 //        // someWhereViewController.output.name = viewController.output.name
 //    }
+    
+    
 
 }

@@ -7,53 +7,64 @@
 //
 
 import UIKit
+import IQKeyboardManager
 
-protocol LoginProtocol{
+
+protocol LoginViewControllerProtocol {
     func showHome()
-    func showEror(message:String)
+    func showError(message:String)
 }
 
-class LoginViewController: UIViewController, LoginProtocol {
 
+class LoginViewController: UIViewController, LoginViewControllerProtocol {
+    
     var presenter:LoginPresenter?
     var router:LoginRouter?
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var lbError: UILabel!
     
-
+    //MARK: - Life Cycle
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        LoginConfigurator.sharedInstance.configure(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        _ = LoginConfigurator.sharedInstance.configure(self)
+        self.lbError.text = ""
+       IQKeyboardManager.shared().shouldResignOnTouchOutside = true
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    // MARK: - LoginProtocol
+    
+    func showHome(){
+        self.router?.routeToHome()
+        self.lbError.text = ""
+    }
+    
+    func showError(message: String) {
+        self.lbError.text = message
+        print(message)
+    }
+    
+    //MARK: - Actions
+    
     @IBAction func TapLoginButton(_ sender: Any) {
-        self.presenter?.login(username:self.usernameTextField.text!, password: self.passwordTextField.text!)
-
+       self.presenter?.login(username: self.usernameTextField.text!, password: self.passwordTextField.text!)
     }
 
     @IBAction func TapRegisterButton(_ sender: Any) {
         self.router?.routeToRegister()
-
-    }
-
-    
-    // MARK: - LoginProtocol
-    func showHome(){
-        self.router?.routeToHome()
     }
     
-    func showEror(message:String){
-        print(message)
-    }
-    
-
     /*
     // MARK: - Navigation
 

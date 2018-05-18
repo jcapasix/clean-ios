@@ -17,15 +17,13 @@ class RegisterConfigurator{
     func configure(_ viewController: RegisterViewController){
 
         let router = RegisterRouter(viewController:viewController)
-
-        let repository: Repository = RestApi.sharedInstance
-
-        let interactor = Interactor(repository: repository)
-
-        let presenter = RegisterPresenter(interactor: interactor, viewController:viewController)
-
+        
+        let interactor = RegisterInteractor(repository: RestApi.sharedInstance)
+        
+        let presenter = RegisterPresenter(interactor: interactor, viewController: viewController)
+       
         viewController.router = router
         viewController.presenter = presenter
     }
-    
+ 
 }

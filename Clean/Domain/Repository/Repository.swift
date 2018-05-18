@@ -10,7 +10,8 @@ import Foundation
 
 
 protocol Repository{
-
+    
     func login(username:String, password:String, completion:@escaping (_ user:UserEntity?, _ error:ErrorEntity?) -> Void)
+    func register(user: User, completion:@escaping(_ user:UserEntity?,_ error:ErrorEntity?) -> Void)
 
 }

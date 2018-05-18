@@ -6,7 +6,8 @@
 //  Copyright © 2017 Jordan Capa. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
 
 class LoginConfigurator{
 
@@ -17,13 +18,11 @@ class LoginConfigurator{
     func configure(_ viewController: LoginViewController){
 
         let router = LoginRouter(viewController:viewController)
-
-        let repository: Repository = RestApi.sharedInstance
-
-        let interactor = Interactor(repository: repository)
-
-        let presenter = LoginPresenter(interactor: interactor, viewController:viewController)
-
+        
+        let interactor = LoginInteractor(repository: RestApi.sharedInstance)
+        
+        let presenter = LoginPresenter(interactor: interactor, viewController: viewController)
+        
         viewController.router = router
         viewController.presenter = presenter
     }
