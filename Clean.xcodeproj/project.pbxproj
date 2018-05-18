@@ -134,7 +134,6 @@
 			children = (
 				392836212086939A004BF7FD /* Home */,
 				3928362020869389004BF7FD /* Login */,
-				9A9773561F9B0A2600D9EF69 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -143,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				9A97734E1F9B0A2600D9EF69 /* Main.storyboard */,
+				9A9773561F9B0A2600D9EF69 /* LaunchScreen.storyboard */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -155,13 +155,13 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		392836282086AAFB004BF7FD /* Login */ = {
+		392836282086AAFB004BF7FD /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				9A97737E1F9B0AEE00D9EF69 /* LoginView */,
 				9A97737F1F9B0B4700D9EF69 /* RegisterView */,
 			);
-			path = Login;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		3928362A2086AC4D004BF7FD /* Interactor */ = {
@@ -171,6 +171,32 @@
 				49A31AAF2087B38D00C44DD9 /* RegisterIteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		4931C27120AF208400F2D7E1 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3928362A2086AC4D004BF7FD /* Interactor */,
+				4931C27220AF209B00F2D7E1 /* Repository */,
+				9AE16F921F9B1F3600907BBD /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		4931C27220AF209B00F2D7E1 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				9A97738C1F9B138C00D9EF69 /* Repository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		4931C27320AF20DA00F2D7E1 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				392836282086AAFB004BF7FD /* Main */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		501FCEE11FA6B9BE009373FF /* Resourses */ = {
@@ -217,14 +243,13 @@
 			isa = PBXGroup;
 			children = (
 				501FCEE11FA6B9BE009373FF /* Resourses */,
-				9A97734A1F9B0A2600D9EF69 /* AppDelegate.swift */,
-				9A9773541F9B0A2600D9EF69 /* Assets.xcassets */,
 				9A97737B1F9B0AD100D9EF69 /* Presentation */,
-				3928362A2086AC4D004BF7FD /* Interactor */,
-				9A97737C1F9B0AD900D9EF69 /* DataWorker */,
-				3928361F20869335004BF7FD /* Views */,
+				4931C27120AF208400F2D7E1 /* Domain */,
+				9A97737C1F9B0AD900D9EF69 /* Data */,
 				9A9773591F9B0A2600D9EF69 /* Info.plist */,
 				9A9773511F9B0A2600D9EF69 /* Clean.xcdatamodeld */,
+				9A97734A1F9B0A2600D9EF69 /* AppDelegate.swift */,
+				9A9773541F9B0A2600D9EF69 /* Assets.xcassets */,
 			);
 			path = Clean;
 			sourceTree = "<group>";
@@ -250,20 +275,20 @@
 		9A97737B1F9B0AD100D9EF69 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				9AE16F921F9B1F3600907BBD /* Model */,
-				392836282086AAFB004BF7FD /* Login */,
+				4931C27320AF20DA00F2D7E1 /* Scenes */,
+				3928361F20869335004BF7FD /* Views */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
 		};
-		9A97737C1F9B0AD900D9EF69 /* DataWorker */ = {
+		9A97737C1F9B0AD900D9EF69 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				9AE16F941F9B1F5800907BBD /* EntitiesModel */,
 				9AE16F931F9B1F4E00907BBD /* Network */,
-				9AE16F901F9B1EE800907BBD /* Repository */,
+				9AE16F901F9B1EE800907BBD /* DataSource */,
+				9AE16F941F9B1F5800907BBD /* Entities */,
 			);
-			path = DataWorker;
+			path = Data;
 			sourceTree = "<group>";
 		};
 		9A97737E1F9B0AEE00D9EF69 /* LoginView */ = {
@@ -288,13 +313,12 @@
 			path = RegisterView;
 			sourceTree = "<group>";
 		};
-		9AE16F901F9B1EE800907BBD /* Repository */ = {
+		9AE16F901F9B1EE800907BBD /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				9A97738C1F9B138C00D9EF69 /* Repository.swift */,
 				9AE16F971F9B1FE200907BBD /* RestApi.swift */,
 			);
-			path = Repository;
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 		9AE16F921F9B1F3600907BBD /* Model */ = {
@@ -315,13 +339,13 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		9AE16F941F9B1F5800907BBD /* EntitiesModel */ = {
+		9AE16F941F9B1F5800907BBD /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				501FCEE51FA6BAA9009373FF /* ErrorEntity.swift */,
 				501FCEE71FA6BB56009373FF /* UserEntity.swift */,
+				501FCEE51FA6BAA9009373FF /* ErrorEntity.swift */,
 			);
-			path = EntitiesModel;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		D398375E7E3C0B278C50BD72 /* Pods */ = {

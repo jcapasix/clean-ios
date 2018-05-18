@@ -10,57 +10,61 @@ import UIKit
 import IQKeyboardManager
 
 
-protocol LoginViewControllerInput {
+protocol LoginViewControllerProtocol {
     func showHome()
     func showError(message:String)
 }
 
-protocol LoginViewControllerOutput: class {
-    func login(username:String, password:String)
-}
 
-class LoginViewController: UIViewController, LoginViewControllerInput {
+class LoginViewController: UIViewController, LoginViewControllerProtocol {
     
-    var output: LoginViewControllerOutput!
+    var presenter:LoginPresenter?
     var router:LoginRouter?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-       IQKeyboardManager.shared().shouldResignOnTouchOutside = true
-    }
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var lbError: UILabel!
+    
+    //MARK: - Life Cycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
         LoginConfigurator.sharedInstance.configure(self)
     }
     
-    func showError(message: String) {
-        print(message)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.lbError.text = ""
+       IQKeyboardManager.shared().shouldResignOnTouchOutside = true
     }
-    // MARK: - LoginProtocol
-    func showHome(){
-        self.router?.routeToHome()
-    }
-    
-   
-    
-//    var presenter:LoginPresenter?
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    // MARK: - LoginProtocol
+    
+    func showHome(){
+        self.router?.routeToHome()
+        self.lbError.text = ""
+    }
+    
+    func showError(message: String) {
+        self.lbError.text = message
+        print(message)
+    }
+    
+    //MARK: - Actions
+    
     @IBAction func TapLoginButton(_ sender: Any) {
-        //self.presenter?.login(username:self.usernameTextField.text!, password: self.passwordTextField.text!)
-        output.login(username: self.usernameTextField.text!, password: self.passwordTextField.text!)
+       self.presenter?.login(username: self.usernameTextField.text!, password: self.passwordTextField.text!)
     }
 
     @IBAction func TapRegisterButton(_ sender: Any) {
         self.router?.routeToRegister()
     }
+    
     /*
     // MARK: - Navigation
 

@@ -7,16 +7,6 @@
 //
 
 import Foundation
-extension RegisterViewController: RegisterPresenterOutput {
-   
-}
-
-extension RegisterInteractor: RegisterViewControllerOutput {
-}
-
-extension  RegisterPresenter: RegisterInteractorOutput {
-    
-}
 
 class RegisterConfigurator{
 
@@ -27,12 +17,13 @@ class RegisterConfigurator{
     func configure(_ viewController: RegisterViewController){
 
         let router = RegisterRouter(viewController:viewController)
-        let presenter = RegisterPresenter()
-        presenter.output = viewController
-        let interactor = RegisterInteractor()
-        interactor.output = presenter
+        
+        let interactor = RegisterInteractor(repository: RestApi.sharedInstance)
+        
+        let presenter = RegisterPresenter(interactor: interactor, viewController: viewController)
+       
         viewController.router = router
-        viewController.output = interactor
+        viewController.presenter = presenter
     }
  
 }

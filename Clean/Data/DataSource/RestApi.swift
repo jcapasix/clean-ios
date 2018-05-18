@@ -22,7 +22,7 @@ public class RestApi: Repository{
     let reachability = Reachability()
     //var requestAlamo:Alamofire.DataRequest?
     
-    let upsError:ErrorEntity = ErrorEntity(status: 999, title: "¡Ups!", detail: "Ocurrió un problema al conectarse con Puntos, por favor intenta nuevamente.", type:AlertType.errorAlert)
+    let upsError:ErrorEntity = ErrorEntity(status: 999, title: "¡Ups!", detail: "Ocurrió un problema al conectarse con el servidor, por favor intenta nuevamente.", type:AlertType.errorAlert)
     
     let redError:ErrorEntity = ErrorEntity(status: 999, title: "", detail: "Tu conecxión a internet esta fallando, por favor intenta de nuevo.", type:AlertType.errorRed)
     
@@ -110,6 +110,7 @@ public class RestApi: Repository{
                     let data = response.result.value
                     if(response.response?.statusCode == 201){
                         userEntity = data
+                        
                         completion(userEntity, error)
                     }
                     if(response.response?.statusCode == 400){

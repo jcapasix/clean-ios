@@ -8,14 +8,6 @@
 
 import UIKit
 
-extension LoginViewController: LoginPresenterOutput {
-}
-
-extension LoginInteractor: LoginViewControllerOutput {
-}
-
-extension LoginPresenter: LoginInteractorOutput {
-}
 
 class LoginConfigurator{
 
@@ -26,12 +18,12 @@ class LoginConfigurator{
     func configure(_ viewController: LoginViewController){
 
         let router = LoginRouter(viewController:viewController)
-        //let repository: Repository = RestApi.sharedInstance
-        let presenter = LoginPresenter()
-        presenter.output = viewController
-        let interactor = LoginInteractor()
-        interactor.output = presenter
+        
+        let interactor = LoginInteractor(repository: RestApi.sharedInstance)
+        
+        let presenter = LoginPresenter(interactor: interactor, viewController: viewController)
+        
         viewController.router = router
-        viewController.output = interactor
+        viewController.presenter = presenter
     }
 }

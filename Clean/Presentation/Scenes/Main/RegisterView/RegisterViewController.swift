@@ -9,20 +9,15 @@
 import UIKit
 
 
-protocol RegisterViewControllerInput {
+protocol RegisterViewControllerProtocol{
     func showLogin()
     func showError(message:String)
 }
 
-protocol RegisterViewControllerOutput: class {
-    func register(_ user: User)
-}
 
-class RegisterViewController: UIViewController, RegisterViewControllerInput{
+class RegisterViewController: UIViewController, RegisterViewControllerProtocol{
     
-    
-
-    var output : RegisterViewControllerOutput!
+    var presenter : RegisterPresenter?
     var router:RegisterRouter?
     
     @IBOutlet weak var txtFirstName: UITextField!
@@ -58,7 +53,7 @@ class RegisterViewController: UIViewController, RegisterViewControllerInput{
                        first_name: txtFirstName.text!,
                        last_name: txtLastName.text!)
         print(user)
-        output.register(self.user!)
+        self.presenter?.register(user: self.user!)
     }
     
     func showLogin() {
